@@ -42,6 +42,8 @@ una vista para ver los favoritos que hemos guardado.
 - async/await
 - children props
 
+___
+
 ### Tareas completadas
 
 - API REST
