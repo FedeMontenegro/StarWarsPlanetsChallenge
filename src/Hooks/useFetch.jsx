@@ -15,7 +15,6 @@ export default function useFetch(initialState = {}) {
             let {next, previous, results} = resultados;
             //Actualizando el estado de los resultados
             setApiResults({next, previous, data: results})
-            console.log(results)
           } catch (error) {
             console.log("Ocurrió un error: " + error)
           }

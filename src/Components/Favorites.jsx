@@ -20,11 +20,8 @@ export default function Favorites() {
         favoriteList = favorites
 
         if (favoriteList[event.target.parentElement.querySelector(".card-title").textContent]) {
-            console.log("removeItem")
             delete favoriteList[event.target.parentElement.querySelector(".card-title").textContent]
-
             setFavorites({ ...favoriteList })
-
             localStorage.setItem("StarWarsPlanetsFavorites", JSON.stringify({ ...favorites }))
         }
     }
@@ -32,7 +29,6 @@ export default function Favorites() {
     useEffect(() => {
         localStorage.key("StarWarsPlanetsFavorites") && setFavorites(JSON.parse(localStorage.getItem("StarWarsPlanetsFavorites")))
     }, [])
-    console.log(favorites)
 
     return (
         <Fragment>
@@ -50,11 +46,9 @@ export default function Favorites() {
                                 <li className="list-group-item" id="card-climate" >Climate: {item.climate}</li>
                                 <li className="list-group-item" id="card-terrain" >Terrain: {item.terrain}</li>
                             </ul>
-                            {/* <div className="card-body"> */}
                             <button onClick={(e) => {
                                 RemoveFavorite(e, favoritesList)
-                            }} type="button" className="btn btn-primary btn-add-fav" id={index + 1}>{item.btnValue}</button>
-                            {/* </div> */}
+                            }} type="button" className="btn btn-primary btn-add-fav" id={index + 1}>Remove favorite</button>
                         </div>
 
                     }) :

@@ -6,6 +6,7 @@ import "../styles/header.css";
 export default function Header() {
 
     let v_ref = useRef();
+    let v_toggle = useRef()
     let [route, setRoute] = useState("");
 
     //Actualiza el parámetro que será enviado mediante la url a la vista de resultados de la búsqueda.
@@ -15,7 +16,7 @@ export default function Header() {
     }
 
     function ToggleBurguerMenu(){
-        v_ref.current.classList.toggle("active-burguer")
+        v_toggle.current.classList.toggle("active-burguer")
     }
 
     return (
@@ -36,7 +37,6 @@ export default function Header() {
                     <form onClick={(e) => btnSearch(e)} className="d-flex">
                         <input onKeyDown={() => {
                             setRoute(v_ref.current.value)
-                            console.log(route)
                         }} className="form-control me-2" type="search" placeholder="Search" aria-label="Search" ref={v_ref}/>
                         <Link to={`/search/${route}`}>
                             <button className="btn btn-outline-success" type="submit">Search</button>
@@ -44,7 +44,7 @@ export default function Header() {
                     </form>
                     <button onClick={ToggleBurguerMenu} className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon">
-                        <div className="navbar-burguer" id="navbarNav" ref={v_ref}>
+                        <div className="navbar-burguer" id="navbarNav" ref={v_toggle}>
                         <ul className="navbar-nav">
                             <li className="nav-item">
                                 <Link className="nav-link active" aria-current="page" to="/">Home</Link>

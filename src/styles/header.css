@@ -7,12 +7,14 @@
 }
 
 .navbar-burguer {
+    background-color: white;
     display: none;
     border: solid 1px gainsboro;
     position: absolute;
     right: -15px;
     top: 40px;
     width: 150px;
+    z-index: 900;
 }
 
 .active-burguer {

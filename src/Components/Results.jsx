@@ -6,12 +6,9 @@ export default function Results() {
     
     let urlSearch = "https://swapi.dev/api/planets/?search=";
     let {results} = useParams();
-    let [apiResults, fetchData, search, setSearch] = UseFetch({ next: "", previous: "", data: []});
-    console.log(useParams())
+    let [apiResults, fetchData] = UseFetch({ next: "", previous: "", data: []});
 
     useEffect(() => {
-        /* setSearch(results)
-        console.log(search) */
         fetchData(urlSearch + results)
     }, [results])
 
@@ -34,7 +31,9 @@ export default function Results() {
                     </div>
 
                 }) :
-                <div>No se encontraron resultados.</div>
+                <div className="alert alert-info" role="alert">
+                    No se encontraron resultados.
+                </div>
             }
         </React.Fragment>
     )
