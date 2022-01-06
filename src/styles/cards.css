@@ -1,0 +1,49 @@
+.h4-search {
+    text-align: center;
+}
+
+.search-bar-container {
+    margin: 20px auto 0;
+    position: relative;
+    width: 39%;
+}
+
+.search-bar {
+    width: 100%;
+}
+
+.btn-search {
+    background-color: blue;
+    border: solid 1px;
+    border-radius: 2px;
+    height: 30px;
+    position: absolute;
+}
+
+.fa-search {
+    color: white;
+}
+
+.card-container {
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    margin: 20px auto;
+    width: 250px;
+}
+
+.card-title {
+    text-align: center;
+}
+
+.btn-primary {
+    margin: 0 auto;
+}
+
+.btn-add-fav {
+    margin: 10px auto;
+}
+
+.alert-info {
+    margin: 60px auto;
+    text-align: center;
+    width: 90%;
+}
