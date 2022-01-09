@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import "../styles/cards.css";
 //Redux
 import {useSelector, useDispatch} from "react-redux";
-import {removeFavorite, clearFavorites} from "../Actions/ShoppingActions";
+import {removeFavorite, clearFavorites} from "../actions/ShoppingActions";
 import CardFavorites from "./CardFavorites";
 
 

@@ -11,7 +11,7 @@ import CardPlanets from "./CardPlanets";
 import UseFetch from "../Hooks/useFetch";
 //Redux
 import {useSelector, useDispatch} from "react-redux";
-import {addFavorite} from "../Actions/ShoppingActions";
+import {addFavorite} from "../actions/ShoppingActions";
 
 export default function Pagination() {
 
