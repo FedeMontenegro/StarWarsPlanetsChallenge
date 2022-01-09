@@ -50,10 +50,7 @@ ___
 - Paginado
 - Buscador por nombre
 - Favoritos
-
-### Tareas pendientes
-
-- Completar la funcionalidad con Redux.
+- Implementación de Redux
 
 ### Tecnologías empleadas
 
