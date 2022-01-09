@@ -89,7 +89,16 @@ export default function Pagination() {
             <h1 className="h1-pagination">Planets List</h1>
             <hr />
             <div className="pagination-container">
-                <CardPlanets data={[...data]} addFavorite={()=> dispatch(addFavorite())}/>
+            {
+            data.length > 0 
+            ? data.map((item, index) => {
+                //console.log(item)
+                return <CardPlanets data={item} key={index+1} addFavorite={()=> dispatch(addFavorite(item))}/>
+            }) 
+            : <div className="alert alert-info" role="alert">
+                Cargando...
+            </div>
+            }
             </div>
             <nav className='nav-container' aria-label="...">
                 <ul className="pagination">

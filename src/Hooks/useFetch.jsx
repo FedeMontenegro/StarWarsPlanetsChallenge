@@ -5,6 +5,7 @@ export default function useFetch(initialState = {}) {
     const [apiResults, setApiResults] = useState(initialState);
 
     const fetchData = async (url = "https://swapi.dev/api/planets/") => {
+      console.log("fetchData")
         try {
             //Realizando solicitud a la API
             const response = await fetch(url);
