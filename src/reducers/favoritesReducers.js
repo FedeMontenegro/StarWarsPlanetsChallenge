@@ -1,55 +1,51 @@
-import { ADD_FAVORITE, CLEAR_FAVORITES, REMOVE_FAVORITE } from "../types";
+import { ADD_FAVORITE, CLEAR_FAVORITES, REMOVE_FAVORITE } from "../types";//Desestructurando acciones
+
+//Cargando favoritos
+let initialState = localStorage.key("StarWarsPlanetsFavorites") ? JSON.parse(localStorage.getItem("StarWarsPlanetsFavorites")): {};
 
 
-let favoritesList = localStorage.key("StarWarsPlanetsFavorites") && JSON.parse(localStorage.getItem("StarWarsPlanetsFavorites"))
-//let newFavorite = {}
-
-function addFavorite(event, /* newFavorite, */ favoriteList) {
-    let newFavorite = {
-        //id: event.target.parentElement.querySelector(".btn-add-fav").id,
-        name: event.target.parentElement.querySelector(".card-title").innerText,
-        diameter: event.target.parentElement.querySelector("#card-diameter").innerText,
-        climate: event.target.parentElement.querySelector("#card-climate").innerText,
-        terrain: event.target.parentElement.querySelector("#card-terrain").innerText,
-        //btnValue: "Remove favorite"
-    }
-
-    //favoriteList = favorites
-    favoriteList[newFavorite.name] = newFavorite;
-    //setFavorites({ ...favorites, ...favoriteList })
-
-    localStorage.setItem("StarWarsPlanetsFavorites", JSON.stringify({ ...favoriteList }))
+/**
+ * @param {*} newFavorite: Contiene los datos del nuevo registro que se guardará en favoritos
+ * @param {*} favoritesList: Captura la lista de favoritos
+ */
+function addToFavorites(newFavorite, favoritesList = initialState) {
+    //Creando nuevo registro
+    favoritesList[newFavorite.name] = {...newFavorite};
+    console.log(favoritesList)
+    //Sobreescribiendo la información del localStorage
+    localStorage.setItem("StarWarsPlanetsFavorites", JSON.stringify({ ...favoritesList }))
 }
 
-function RemoveFavorite(event, favoriteList) {
-    //favoriteList = favorites
+/**
+ * @param {*} name: El nombre del objeto a eliminar
+ * @param {*} state: La lista de favoritos en la que se buscará el registro que se debe eliminar
+ */
+function removeOfFavorites(name, state) {
+    //Si el objeto se encuentra state, se lo elimina de la lista
+    if (state[name]) {
+        delete state[name]
 
-    if (favoriteList[event.target.parentElement.querySelector(".card-title").textContent]) {
-        console.log("removeItem")
-        delete favoriteList[event.target.parentElement.querySelector(".card-title").textContent]
-
-        //setFavorites({ ...favoriteList })
-
-        localStorage.setItem("StarWarsPlanetsFavorites", JSON.stringify({ ...favoriteList }))
+        //Sobreescribiendo información de localStorage
+        localStorage.setItem("StarWarsPlanetsFavorites", JSON.stringify({ ...state }))
     }
 }
 
-function ClearFavorites(){
+//Esta función elimina todos los registros de favoritos.
+function cleanFavorites(){
     localStorage.clear();
 }
 
-export const shoppingReducer = (state = favoritesList, action) => {
+export const favoritesReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_FAVORITE:
-            addFavorite(e, newFavorite, state)
+            addToFavorites(action.payload, state)
             return state;
         case REMOVE_FAVORITE:
-            RemoveFavorite(e, state)
-            return state;
-    
+            removeOfFavorites(action.payload, state)
+            return state = {...state};
         case CLEAR_FAVORITES:
-            ClearFavorites()
-            return state;
+            cleanFavorites();
+            return state = {};
         default:
             return state;
     }
