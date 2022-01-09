@@ -3,7 +3,6 @@ import {useState} from "react";
 export default function useFetch(initialState = {}) {
 
     const [apiResults, setApiResults] = useState(initialState);
-    //const [search, setSearch] = useState("");
 
     const fetchData = async (url = "https://swapi.dev/api/planets/") => {
         try {
@@ -20,6 +19,6 @@ export default function useFetch(initialState = {}) {
           }
     }
 
-    return [apiResults, fetchData/* , search, setSearch */]
+    return [apiResults, fetchData]
     
 }

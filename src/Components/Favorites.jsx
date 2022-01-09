@@ -5,8 +5,6 @@ import "../styles/cards.css";
 import {useSelector, useDispatch} from "react-redux";
 import {removeFavorite} from "../Actions/ShoppingActions";
 
-
-
 export default function Favorites() {
 
     const state = useSelector(state => state);
@@ -16,6 +14,11 @@ export default function Favorites() {
     //Aquí se guarda el listado de planetas favoritos que se hayan cargado en localStorage.
     let favoritesList = []
 
+    /**
+     * 
+     * @param {*} event : Captura la caja contenedora del elemento que contiene la información de cada card.
+     * @param {*} favoriteList : Recibe el listado de favoritos, elimina el elemento solicitado y luego actualiza el estado de 'favoritos'.
+     */
     function RemoveFavorite(event, favoriteList) {
         favoriteList = favorites
 

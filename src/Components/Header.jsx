@@ -15,6 +15,7 @@ export default function Header() {
         route += v_ref.current.value;
     }
 
+    //Despliega y repliega el menú hamburguesa.
     function ToggleBurguerMenu(){
         v_toggle.current.classList.toggle("active-burguer")
     }

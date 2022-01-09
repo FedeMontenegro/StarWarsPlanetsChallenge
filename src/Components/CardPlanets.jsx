@@ -3,19 +3,23 @@ import "../styles/cards.css";
 
 export default function CardPlanets(props) {
 
-    let [favorites, setFavorites] = useState([])
+    //let [favorites, setFavorites] = useState([])
 
-    let favoritesList = []
-    let newFavorite = {}
+    //let favoritesList = []//Gestiona la lista de registros de favoritos, actualiza el estado de 'favoritos'
+    //let newFavorite = {}//Almacena las propiedades del nuevo registro que se va a añadir a favoritos.
 
-
-    function addFavorite(event, newFavorite, favoriteList) {
+    /**
+     * 
+     * @param {*} event : Captura la caja contenedora del elemento que contiene la información de cada card.
+     * @param {*} newFavorite : Almacena un objeto literal con las propiedades del nuevo elemento a insertar en favoritos.
+     * @param {*} favoriteList : Almacena la lista de favoritos disponible en localStorage y guarda el nuevo favorito, para luego ser seteado en el estado de 'favoritos'.
+     */
+    /* function addFavorite(event, newFavorite, favoriteList) {
         newFavorite = {
             name: event.target.parentElement.querySelector(".card-title").innerText,
             diameter: event.target.parentElement.querySelector("#card-diameter").innerText,
             climate: event.target.parentElement.querySelector("#card-climate").innerText,
-            terrain: event.target.parentElement.querySelector("#card-terrain").innerText,/* 
-            btnValue: "Remove favorite" */
+            terrain: event.target.parentElement.querySelector("#card-terrain").innerText,
         }
 
         favoriteList = favorites
@@ -23,7 +27,7 @@ export default function CardPlanets(props) {
         setFavorites({ ...favorites, ...favoriteList })
 
         localStorage.setItem("StarWarsPlanetsFavorites", JSON.stringify({ ...favorites }))
-    }
+    } */
 
     useEffect(() => {
         localStorage.key("StarWarsPlanetsFavorites") && setFavorites(JSON.parse(localStorage.getItem("StarWarsPlanetsFavorites")))
